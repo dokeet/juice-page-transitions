@@ -2,6 +2,8 @@ import Head from 'next/head'
 import data from "../../utils/data"
 import { motion } from "framer-motion"
 export default function Product({ data }) {
+	const color = data.bgColor === 'lime' && 'bg-lime-400' || data.bgColor === 'green' && 'bg-green-400' || data.bgColor === 'yellow' && 'bg-yellow-400'
+
 	const variants = {
 		show: {
 			opacity: 1,
@@ -23,7 +25,7 @@ export default function Product({ data }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<motion.article className={`grid grid-cols-3 ${data.bgColor} h-screen w-screen`} layoutId={`article_${data.name}`}>
+			<motion.article className={`grid grid-cols-3 ${color} h-screen w-screen`} layoutId={`article_${data.name}`}>
 				<motion.div className="flex items-center justify-center" variants={variants}
 					animate={"show"}
 					exit={"hide"}

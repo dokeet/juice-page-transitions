@@ -24,7 +24,6 @@ export default function Home() {
 
 				</section>
 				<section className="grid grid-cols-3">
-
 					{products.map(product => <Card name={product.name} image={product.image} alt={product.alt} bgColor={product.bgColor} />)}
 				</section>
 			</main>
@@ -32,10 +31,11 @@ export default function Home() {
 	)
 }
 const Card = ({ name, image, bgColor }) => {
+	const color = `bg-${bgColor}-400`
 	return (
 		<Link href={`product/${name}`}>
-			<motion.article className={`${bgColor}`} layoutId={`article_${name}`}>
-				<div className={`${bgColor} h-full w-full flex items-center justify-center`}>
+			<motion.article className={`${color}`} layoutId={`article_${name}`}>
+				<div className={`${color} h-full w-full flex items-center justify-center`}>
 					<motion.img className="image-card h-4/6" src={image} alt={name} layoutId={name}/>
 				</div>
 			</motion.article>
